@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div id="root">
+        <h1>Hello World ! Welcome to my lab ASP.NET WEB API</h1><br />
+        {@Html.ActionLink("Click me to generate Client Key Secret", "GenerateClientKey", "Home");}<br />
+        <ul>
+            <li>Client ID:<input type='text' value='@LabMvcWebApi.Repository.GlobalAppRep.APP_CLIENT_ID' /></li>
+            <li>Client Secret:<input type='text' value='@LabMvcWebApi.Repository.GlobalAppRep.APP_CLIENT_SECRET' /></li>
+        </ul>
+        <br />
+        Total Tokens:<b>@LabMvcWebApi.Repository.GlobalAppRep.tokenStorage.Count</b>
+        <table>
+            <tr>
+                <th>CompanyCode</th>
+                <th>TokenID</th>
+                <th>TokenKey</th>
+                <th>IssuedOn</th>
+                <th>ExpiresOn</th>
+            </tr>
+        @foreach(LabMvcWebApi.Models.TokensManager t in LabMvcWebApi.Repository.GlobalAppRep.tokenStorage)
+        {
+            <tr>
+                <td>@t.CompanyCode</td>
+                <td>@t.TokenID</td>
+                <td>@t.TokenKey</td>
+                <td>@t.IssuedOn</td>
+                <td>@t.ExpiresOn</td>
+            </tr>
+        }
+        </table>
+</div>
+    </body>
+</html>

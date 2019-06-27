@@ -9,7 +9,7 @@ namespace LabMvcWebApi.Models
     {
         public int TokenID { get; set; }
 
-        public int TokenKey { get; set; }
+        public string TokenKey { get; set; }
 
         public DateTime IssuedOn { get; set; }
 
